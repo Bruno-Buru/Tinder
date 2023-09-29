@@ -1,0 +1,66 @@
+@startuml
+
+
+
+class Perfil{
+private nombre:string
+private descripcion:string
+private foto:string
+private dominio:Dominio
+private tipoDePerfil:TipoDePerfil
+private coleccionDeRespuestas:RespuestaACampoVariable[]
+
+}
+
+class Dominio{
+private nombre:string
+private tipoDeVinculacion:tipoDeVinculacion
+private cantDeParticipantes:number
+private tipoDePerfiles:TipoDePerfil[]
+private camposVariable:CamposVariable[]
+}
+
+class CampoVariable{
+private nombre:string
+private posiblesValores:PosibleValor[]
+private campoObligatorio:boolean
+
+}
+
+class PosibleValor{
+private descripcion:string
+}
+
+
+class RespuestaACampoVariable{
+private campoVariable: CampoVariable
+private posibleValor: PosibleValor
+
+}
+
+class TipoDePerfil{
+private nombre:string
+}
+
+enum tipoDeVinculacion {
+SIMPLE,
+MULTIPLE
+}
+
+class Like{
+private quienLoDio:Perfil
+private quienLoRecibio:Perfil
+private timeStamp:Date
+}
+
+class Match{
+private likes:Like[]
+private timeStamp:Date
+
+}
+
+
+
+
+
+@enduml
